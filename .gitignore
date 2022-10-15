@@ -1,2 +1,5 @@
 # IDE specific stuff
 .fleet
+
+# СMake
+cmake-build-debug
