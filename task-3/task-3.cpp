@@ -132,26 +132,6 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
-//	for (int m = min_m; m <= max_m; m++)
-//	{
-//		for (int a = 0; a < m; ++a)
-//		{
-//			int c = number_2 - ((number_1 * a) % m);
-//			if (c < 0)
-//			{
-//				c += m;
-//			}
-//			int my_x2 = (number_1 * a + c) % m;
-//			int my_x3 = (number_2 * a + c) % m;
-//			int my_x4 = (number_3 * a + c) % m;
-//			int my_x5 = (number_4 * a + c) % m;
-//			if (my_x2 == number_2 && my_x3 == number_3 && my_x4 == number_4)
-//			{
-//				std::cout << "m=" << m << "\ta=" << a << "\tc=" << c << "\tnext number: " << my_x5 << std::endl;
-//			}
-//		}
-//	}
-
 	auto params = calculate_params(number_1, number_2, number_3, number_4);
 
 	std::cout << "All possible m, a, c combinations and projected next number:" << std::endl;
