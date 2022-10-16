@@ -69,15 +69,15 @@ calculate_params(const int number_1, const int number_2, const int number_3, con
 			diff_3 += m;
 		}
 
-		// Находим мультипликативное обратное значение
+		// Находим мультипликативное обратное значение для вычисления a
 		// diff_2 = a * diff_1  ->  a = 1/diff_1 * diff_2
 		int inv_diff_1 = modular_inverse(diff_1, m);
 		if (inv_diff_1 < 0) continue;
 		int a = (diff_2 * inv_diff_1) % m;
 
+		// Проверяем что разницы совпали
 		int possible_diff_2 = (a * diff_1) % m;
 		int possible_diff_3 = (a * diff_2) % m;
-
 		if (possible_diff_2 == diff_2 && possible_diff_3 == diff_3)
 		{
 			Params param = Params();
@@ -87,7 +87,7 @@ calculate_params(const int number_1, const int number_2, const int number_3, con
 		}
 	}
 
-	for (auto& param: params)
+	for (Params& param: params)
 	{
 		for (int c = 0; c < param.m; c++)
 		{
@@ -132,10 +132,10 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
-	auto params = calculate_params(number_1, number_2, number_3, number_4);
+	std::vector <Params> params = calculate_params(number_1, number_2, number_3, number_4);
 
 	std::cout << "All possible m, a, c combinations and projected next number:" << std::endl;
-	for (auto& param: params)
+	for (Params& param: params)
 	{
 		std::cout << "m=" << param.m << "\ta=" << param.a << "\tc=" << param.c << "\t\tnext number: "
 				  << (param.a * number_4 + param.c) % param.m << std::endl;
