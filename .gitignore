@@ -1,5 +1,9 @@
 # IDE specific stuff
 .fleet
+.idea
 
 # СMake
 cmake-build-debug
+
+# macOS specific
+.DS_Store
